@@ -1,7 +1,18 @@
-import { Canister, query, text } from 'azle';
+import { StableBTreeMap, ic } from "azle";
+import * as express from "express";
+import { createServer } from "http";
 
-export default Canister({
-    greet: query([text], text, (name) => {
-        return `Hello, ${name}!`;
-    })
-})
+const server = createServer((req, res) => {
+  const app = express();
+  app.use(express.json());
+
+  app.post("/", (req, res) => {
+    res.json({
+      message: "Home route",
+    });
+  });
+});
+
+server.listen(3000, () => {
+  console.log("Server running on port 3000");
+});
