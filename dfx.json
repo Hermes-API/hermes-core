@@ -1,0 +1,39 @@
+{
+  "canisters": {
+    "hermes-core-backend": {
+      "build": "npx azle hermes-core-backend",
+      "candid": "src/hermes-core-backend/hermes-core-backend.did",
+      "gzip": true,
+      "main": "src/hermes-core-backend/src/index.ts",
+      "tech_stack": {
+        "cdk": {
+          "azle": {}
+        },
+        "language": {
+          "javascript": {},
+          "typescript": {}
+        }
+      },
+      "type": "custom",
+      "wasm": ".azle/hermes-core-backend/hermes-core-backend.wasm"
+    },
+    "hermes-core-frontend": {
+      "dependencies": [
+        "hermes-core-backend"
+      ],
+      "source": [
+        "src/hermes-core-frontend/dist"
+      ],
+      "type": "assets",
+      "workspace": "hermes-core-frontend"
+    }
+  },
+  "defaults": {
+    "build": {
+      "args": "",
+      "packtool": ""
+    }
+  },
+  "output_env_file": ".env",
+  "version": 1
+}
